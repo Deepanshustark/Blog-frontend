@@ -1,0 +1,76 @@
+/* Full page center */
+.login-container {
+  margin-top: 50px;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+   background: linear-gradient(135deg, #1e3a8a, #2563eb);
+}
+
+/* Form box */
+.login-form {
+  background: #111827;
+  padding: 30px 40px;
+  border-radius: 12px;
+  width: 320px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+  color: white;
+}
+
+/* Heading */
+.login-form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #38bdf8;
+}
+
+/* Labels */
+.login-form label {
+  font-size: 14px;
+  margin-bottom: 5px;
+  display: block;
+}
+
+/* Inputs */
+.login-form input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  background: #1f2937;
+  color: white;
+}
+
+/* Input focus */
+.login-form input:focus {
+  border: 1px solid #38bdf8;
+}
+
+/* Button */
+.login-form button {
+  width: 100%;
+  padding: 10px;
+  background: #2563eb;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* Button hover */
+.login-form button:hover {
+  background: #1d4ed8;
+}
+
+/* line */
+hr{
+    border:2px solid #38bdf8;
+}
+a{
+    color: #38bdf8;
+}

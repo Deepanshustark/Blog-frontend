@@ -1,0 +1,58 @@
+/* Container */
+.notfound {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #1e293b, #0f172a);
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Big 404 */
+.error-code {
+  font-size: 120px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  background: linear-gradient(90deg, #3b82f6, #60a5fa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: float 2s ease-in-out infinite;
+}
+
+/* Floating animation */
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+/* Subtitle */
+.notfound h2 {
+  margin-bottom: 10px;
+}
+
+/* Text */
+.notfound p {
+  color: #cbd5f5;
+  margin-bottom: 20px;
+}
+
+/* Button */
+.notfound button {
+  padding: 12px 20px;
+  border-radius: 25px;
+  border: none;
+  background: #3b82f6;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* Hover */
+.notfound button:hover {
+  background: #2563eb;
+  transform: scale(1.05);
+}
