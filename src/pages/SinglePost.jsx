@@ -24,7 +24,7 @@ function SinglePost() {
 
     if (!confirmDelete) return; // ❌ user cancelled
     try {
-      const res = await fetch(`http://localhost:8080/api/posts/${id}`, {
+      const res = await fetch(`https://blog-backend-wkan.onrender.com/api/posts/${id}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${user?.token}`,
@@ -50,7 +50,7 @@ function SinglePost() {
   //handleComments
   const handleComments = async () => {
     try {
-      const res = await fetch(`http://localhost:8080/api/post/comment/${id}`, {
+      const res = await fetch(`https://blog-backend-wkan.onrender.com/api/post/comment/${id}`, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${user?.token}`,
@@ -70,7 +70,7 @@ function SinglePost() {
   };
   const fetchComments = async () => {
     try {
-      const res = await fetch(`http://localhost:8080/api/post/comment/${id}`);
+      const res = await fetch(`https://blog-backend-wkan.onrender.com/api/post/comment/${id}`);
       const data = await res.json();
       setComments(data);
     } catch (error) {
@@ -102,7 +102,7 @@ function SinglePost() {
     console.log("USER", user);
     console.log("USER token", user.token);
     try {
-      const res = await fetch(`http://localhost:8080/api/posts/${id}`, {
+      const res = await fetch(`https://blog-backend-wkan.onrender.com/api/posts/${id}`, {
         headers: {
           Authorization: `Bearer ${user?.token}`,
         },

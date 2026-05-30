@@ -35,7 +35,7 @@ function Dashboard() {
     console.log(user);
 
     try {
-      const res = await fetch("http://localhost:8080/api/posts", {
+      const res = await fetch("https://blog-backend-wkan.onrender.com/api/posts", {
         method: "GET",
         headers: {
           Authorization: `Bearer ${user?.token}`,
@@ -63,7 +63,7 @@ function Dashboard() {
     console.log(postId);
     try {
       const res = await fetch(
-        `http://localhost:8080/api/posts/like/${postId}`,
+        `https://blog-backend-wkan.onrender.com/api/posts/like/${postId}`,
         {
           method: "PUT",
           headers: {

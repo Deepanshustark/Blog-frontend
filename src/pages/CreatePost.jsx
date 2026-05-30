@@ -27,7 +27,7 @@ function CreatePost() {
     console.log(user);
 
     try {
-      const res = await fetch("http://localhost:8080/api/posts/create", {
+      const res = await fetch("https://blog-backend-wkan.onrender.com/api/posts/create", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

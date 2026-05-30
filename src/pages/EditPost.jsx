@@ -22,7 +22,7 @@ function EditPost() {
       console.log(editPost.image);
       console.log(editPost.isPublic);
 
-      const res = await fetch(`http://localhost:8080/api/posts/edit/${id}`, {
+      const res = await fetch(`https://blog-backend-wkan.onrender.com/api/posts/edit/${id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -52,7 +52,7 @@ function EditPost() {
   };
 
   const fetchPost = async () => {
-    const res = await fetch(`http://localhost:8080/api/posts/${id}`, {
+    const res = await fetch(`https://blog-backend-wkan.onrender.com/api/posts/${id}`, {
       headers: {
         Authorization: `Bearer ${user?.token}`,
       },
