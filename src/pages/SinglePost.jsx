@@ -4,6 +4,7 @@ import "./SinglePage.css";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import { SkeletonTheme } from "react-loading-skeleton";
+import { getToken } from "../utils/auth";
 
 function SinglePost() {
   const { id } = useParams();
@@ -104,7 +105,7 @@ function SinglePost() {
     try {
       const res = await fetch(`https://blog-backend-wkan.onrender.com/api/posts/${id}`, {
         headers: {
-          Authorization: `Bearer ${user?.token}`,
+           Authorization: `Bearer ${getToken()}`,
         },
       });
       const post = await res.json();

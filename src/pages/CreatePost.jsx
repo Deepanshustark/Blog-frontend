@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./CreatePost.css";
 import { Navigate, useNavigate } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
+import { getToken } from "../utils/auth";
 
 function CreatePost() {
   const navigate = useNavigate();
@@ -31,7 +32,7 @@ function CreatePost() {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${user?.token}`,
+           Authorization: `Bearer ${getToken()}`,
         },
         body: JSON.stringify(post),
       });

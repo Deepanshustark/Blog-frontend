@@ -4,6 +4,7 @@ import { useState } from "react";
 import "./Dashboard.css";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
+import { getToken } from "../utils/auth";
 
 function Dashboard() {
   const user = JSON.parse(localStorage.getItem("user"));
@@ -38,7 +39,7 @@ function Dashboard() {
       const res = await fetch("https://blog-backend-wkan.onrender.com/api/posts", {
         method: "GET",
         headers: {
-          Authorization: `Bearer ${user?.token}`,
+           Authorization: `Bearer ${getToken()}`,
         },
       });
       if (res.status === 401) {
@@ -68,7 +69,7 @@ function Dashboard() {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${user?.token}`,
+             Authorization: `Bearer ${getToken()}`,
           },
         },
       );
