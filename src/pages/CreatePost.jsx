@@ -10,7 +10,7 @@ function CreatePost() {
   const [post, setPost] = useState({
     title: "",
     content: "",
-    image: "",
+    image: null,
     isPublic: true,
   });
 
@@ -24,34 +24,46 @@ function CreatePost() {
     console.log(post);
   };
   const handleSubmit = async (e) => {
-    const user = JSON.parse(localStorage.getItem("user"));
-    console.log(user);
+  e.preventDefault();
 
-    try {
-      const res = await fetch("https://blog-backend-wkan.onrender.com/api/posts/create", {
+  const formData = new FormData();
+  formData.append("title", post.title);
+  formData.append("content", post.content);
+  formData.append("isPublic", post.isPublic);
+ if (post.image) {
+  formData.append("image", post.image);
+}
+
+  try {
+    const res = await fetch(
+      "https://blog-backend-wkan.onrender.com/api/posts/create",
+      {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
-           Authorization: `Bearer ${getToken()}`,
+          Authorization: `Bearer ${getToken()}`,
         },
-        body: JSON.stringify(post),
-      });
-      const data = await res.json();
-      if (!data) {
-        alert("Post creation error");
-      } else {
-        alert("Post create successfulls");
-        navigate("/dashboard");
+        body: formData,
       }
-    } catch (error) {
-      console.error(error);
-      alert("something went wrong");
+    );
+
+    const data = await res.json();
+
+    if (res.ok) {
+      alert("Post created successfully");
+      navigate("/dashboard");
+    } else {
+      alert(data.message || "Error creating post");
     }
-  };
+  } catch (error) {
+    console.log(error);
+    alert("Something went wrong");
+  }
+};
 
   return (
     <>
-      <div className="header-createpost"
+      <div
+        className="header-createpost"
         style={{
           display: "flex",
           alignItems: "center",
@@ -99,13 +111,17 @@ function CreatePost() {
             <label htmlFor="image">Image</label>
             <br />
             <input
-              type="text"
-              placeholder="enter image url"
+              type="file"
+              placeholder="upload image..."
               required
+              accept="image/*"
               id="image"
-              onChange={handleChange}
-              name="image"
-              value={post.image}
+              onChange={(e) => {
+                setPost((prev) => ({
+                  ...prev,
+                  image: e.target.files?.[0],
+                }));
+              }}
             />
             <br />
             <div className="toggle-container">
